@@ -55,14 +55,14 @@ class Database
 						break;
 					}
 				default:
-					$this->showError();
+					$this->showError($lang);
 					exit();
 			}
 			$this->query("PRAGMA foreign_keys = ON");
 		}
 		catch(\Exception $e)
 		{
-			$this->showError();
+			$this->showError($lang);
 			exit();
 		}
 	}
@@ -127,9 +127,9 @@ class Database
 		return ($this->debugOutput != "" ? "<hr /><strong>DEBUG:</strong><br />".$this->debugOutput : $this->debugOutput);
 	}
 	
-	public function showError()
+	public function showError($lang)
 	{
-		global $lang;
+		//global $lang;
 		$classPDO = class_exists("PDO");
 		$classSQLite3 = class_exists("SQLite3");
 		$classSQLiteDatabase = class_exists("SQLiteDatabase");

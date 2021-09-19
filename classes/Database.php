@@ -14,7 +14,7 @@ class Database
 
 	public function __construct($data)
 	{
-		include_once LANGFILE;
+		$lang =  LANG;
 		error_log("lang", strlen($lang));
 		global $params;
 		$this->data = $data;

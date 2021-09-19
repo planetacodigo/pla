@@ -134,7 +134,7 @@ class Database
 		$classSQLite3 = class_exists("SQLite3");
 		$classSQLiteDatabase = class_exists("SQLiteDatabase");
 		if($classPDO)	// PDO is there, check if the SQLite driver for PDO is missing
-			$PDOSqliteDriver = (in_array("sqlite", PDO::getAvailableDrivers() ));
+			$PDOSqliteDriver = (in_array("sqlite", \PDO::getAvailableDrivers() ));
 		else
 			$PDOSqliteDriver = false;
 		echo "<div class='confirm' style='margin:20px;'>";

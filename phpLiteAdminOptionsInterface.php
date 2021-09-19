@@ -76,7 +76,7 @@ abstract class phpLiteAdminOptionsInterface {
         $prefix = lcfirst($property);
         if ( property_exists($this, $prefix) ) {
             if ($arguments) {
-                $this->{$prefix} = $arguments;
+                $this->{$prefix} = $arguments[0];
                 return true;
             }
             else {

@@ -11,7 +11,8 @@ use phpLiteAdmin\Library\Resources;
 # END REMOVE_FROM_BUILD
 
 //- Initialization
-error_log("Pass: {$password}\n");
+$text = print_r($password, true);
+error_log("Pass: {$text}\n");
 
 
 //constants 1

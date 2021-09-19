@@ -42,12 +42,13 @@ class phpLiteAdmin extends phpLiteAdminOptionsInterface {
         # REMOVE_FROM_BUILD
         // include default configuration and language
         //include './phpliteadmin.config.sample.php';
-        include './languages/lang_en.php';
+        include_once dirname(__FILE__) . '/languages/lang_en.php';
 
         /**
          * Start Code
          */
-        include './index.php';
+        $d = dirname(__FILE__);
+        include_once $d . "/index.php";
         /**
          * End Code
          */

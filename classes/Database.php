@@ -2,6 +2,7 @@
 // Database class
 // Generic database abstraction class to manage interaction with database without worrying about SQLite vs. PHP versions
 //
+namespace phpLiteAdmin\Library;
 class Database
 {
 	protected $db; //reference to the DB object

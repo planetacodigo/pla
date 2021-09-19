@@ -1,41 +1,18 @@
 <?php
 
-if (version_compare(phpversion(), '5.2.4', '<')) {
-	die('Your PHP version is PHP '.phpversion().', which is too old. You need at least PHP 5.2.4.');
-}
+use phpLiteAdmin\Library\Authorization;
+use phpLiteAdmin\Library\Database;
+use phpLiteAdmin\Library\GetParameters;
+use phpLiteAdmin\Library\MicroTimer;
+use phpLiteAdmin\Library\Resources;
 
-if(strpos(ini_get('variables_order'),'G') === false || strpos(ini_get('variables_order'),'P') === false ||
-   strpos(ini_get('variables_order'),'C') === false || strpos(ini_get('variables_order'),'S') === false) {
-	die('The php configuration <em>variables_order</em> needs to include G, P, C and S. The current value is "'.ini_get('variables_order').'". Please check the php configuration (php.ini).');
-}
 
-# REMOVE_FROM_BUILD
-// include default configuration and language
-//include './phpliteadmin.config.sample.php';
-include './languages/lang_en.php';
 
-// setup class autoloading
-function pla_autoload($classname)
-{
-	$classfile = __DIR__ . '/classes/' . $classname . '.php';
-
-	if (is_readable($classfile)) {
-		include $classfile;
-		return true;
-	}
-	return false;
-}
-spl_autoload_register('pla_autoload');
 # END REMOVE_FROM_BUILD
 
 //- Initialization
+error_log("Pass: {$password}\n");
 
-// load optional configuration file
-$config_filename = './phpliteadmin.config.php';
-if (is_readable($config_filename))
-{
-	include_once $config_filename;
-}
 
 //constants 1
 define("PROJECT", "phpLiteAdmin");

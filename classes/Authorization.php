@@ -2,6 +2,7 @@
 // Authorization class
 // Maintains user's logged-in state and security of application
 //
+namespace phpLiteAdmin\Library;
 
 class Authorization
 {

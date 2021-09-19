@@ -3,6 +3,7 @@
 //	outputs secondary files, such as css and javascript
 //	data is stored gzipped (gzencode) and encoded (base64_encode)
 //
+namespace phpLiteAdmin\Library;
 class Resources {
 
 	// set this to the file containing getInternalResource;

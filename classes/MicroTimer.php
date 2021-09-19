@@ -2,6 +2,7 @@
 //	class MicroTimer (issue #146)
 //	wraps calls to microtime(), calculating the elapsed time and rounding output
 //
+namespace phpLiteAdmin\Library;
 class MicroTimer {
 
 	private $startTime, $stopTime;

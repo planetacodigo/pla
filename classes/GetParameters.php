@@ -1,5 +1,5 @@
 <?php
-
+namespace phpLiteAdmin\Library;
 class GetParameters
 {
 	private $_fields;

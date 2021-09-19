@@ -18,7 +18,7 @@ class phpLiteAdmin extends phpLiteAdminOptionsInterface {
         $databases = $this->getDatabases();
         $theme = $this->getTheme();
         $language = $this->getLanguage();
-        $rowsNum = $this->getRowsnum();
+        $rowsNum = $this->getRowsNum();
         $charsNum = $this->getCharsNum();
         $maxSavedQueries = $this->getMaxSavedQueries();
         $custom_functions = $this->custom_functions();

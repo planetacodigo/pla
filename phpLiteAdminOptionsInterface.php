@@ -63,6 +63,38 @@ abstract class phpLiteAdminOptionsInterface {
 
     }
 
+    public function __call($name, $arguments)
+    {
+        $search = [
+            'get',
+            'set'
+        ];
+        $replace = [
+            '', ''
+        ];
+        $property = str_replace($search, $replace, $name);
+        $prefix = lcfirst($property);
+        if ( property_exists($this, $prefix) ) {
+            if ($arguments) {
+                $this->{$prefix} = $arguments;
+                return true;
+            }
+            else {
+                $prefix = lcfirst($property);
+                return $this->{$prefix};
+            }
+        }
+        else {
+            $trace = debug_backtrace();
+            trigger_error(
+                'Propiedad indefinida mediante __get(): ' . $name .
+                ' en ' . $trace[0]['file'] .
+                ' en la línea ' . $trace[0]['line'],
+                E_USER_NOTICE);
+            return null;
+        }
+    }
+
     public function __get($name)
     {
         $property = str_replace('get', '', $name);

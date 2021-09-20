@@ -45,6 +45,7 @@ if(!session_start())
 define("COOKIENAME", preg_replace('/[^a-zA-Z0-9_]/', '_', $cookie_name . '_' . VERSION) );
 
 $params = new GetParameters();
+define("PARAMS", $params);
 
 if($debug==true)
 {

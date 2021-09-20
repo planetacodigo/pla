@@ -16,7 +16,7 @@ class Database
 	{
 		$lang =  LANG;
 		error_log("lang", count($lang));
-		global $params;
+		$params = PARAMS;
 		$this->data = $data;
 		try
 		{
@@ -182,7 +182,8 @@ class Database
 	{
 		$lang = LANG;
 		$databases = DATABASES;
-		global $params, $currentDB;
+		$params = PARAMS;
+		global $currentDB;
 		echo "<fieldset style='margin:15px;' class='databaseList'><legend><b>".$lang['db_ch']."</b></legend>";
 		if(sizeof($databases)<10) //if there aren't a lot of databases, just show them as a list of links instead of drop down menu
 		{

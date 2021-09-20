@@ -43,6 +43,7 @@ class phpLiteAdmin extends phpLiteAdminOptionsInterface {
         // include default configuration and language
         //include './phpliteadmin.config.sample.php';
         $d = dirname(__FILE__);
+        define("ROOTPA", $d);
        
         include_once $d . "/languages/lang_en.php";
         define("LANG", $lang );

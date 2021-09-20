@@ -13,15 +13,15 @@ class Resources {
 	private static $_resources = array(
 		'css' => array(
 			'mime' => 'text/css',
-			'data' => 'resources/phpliteadmin.css',
+			'data' => ROOTPA . '/resources/phpliteadmin.css',
 		),
 		'javascript' => array(
 			'mime' => 'text/javascript',
-			'data' => 'resources/phpliteadmin.js',
+			'data' => ROOTPA . '/resources/phpliteadmin.js',
 		),
 		'favicon' => array(
 			'mime' => 'image/x-icon',
-			'data' => 'resources/favicon.ico',
+			'data' => ROOTPA . '/resources/favicon.ico',
 			'base64' => 'true',
 		),
 	);
@@ -36,7 +36,7 @@ class Resources {
 			if (function_exists('getInternalResource') && $data = getInternalResource($res['data'])) {
 				$filename = self::$embedding_file;
 			} else {
-				$filename = $res['data'];
+				$filename =  $res['data'];
 			}
 
 			// use last-modified time as etag; etag must be quoted

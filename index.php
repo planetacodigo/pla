@@ -2,7 +2,7 @@
 
 use phpLiteAdmin\Library\Authorization;
 use phpLiteAdmin\Library\Database;
-
+use phpLiteAdmin\Library\GetParameters;
 use phpLiteAdmin\Library\MicroTimer;
 use phpLiteAdmin\Library\Resources;
 
@@ -22,6 +22,7 @@ define('PROJECT_BUGTRACKER_LINK','<a href="https://bitbucket.org/phpliteadmin/pu
 define('PROJECT_INSTALL_LINK','<a href="https://bitbucket.org/phpliteadmin/public/wiki/Installation" target="_blank">https://bitbucket.org/phpliteadmin/public/wiki/Installation</a>');
 
 
+$params = new GetParameters();
 // up here, we don't output anything. debug output might appear here which is catched by ob and thrown later
 ob_start();
 
@@ -236,7 +237,8 @@ function htmlencode($value, $flags=ENT_QUOTES, $encoding ="UTF-8")
 // reduce string chars
 function subString($str)
 {
-	global $charsNum, $params;
+	global $charsNum;
+	$params = new GetParameters();
 	if($charsNum > 10 && (!isset($params->fulltexts) || !$params->fulltexts) && mb_strlen($str)>$charsNum)
 	{
 		$str = mb_substr($str, 0, $charsNum).'...';

@@ -181,7 +181,8 @@ class Database
 	public function print_db_list()
 	{
 		$lang = LANG;
-		global $databases, $params, $currentDB;
+		$databases = DATABASES;
+		global $params, $currentDB;
 		echo "<fieldset style='margin:15px;' class='databaseList'><legend><b>".$lang['db_ch']."</b></legend>";
 		if(sizeof($databases)<10) //if there aren't a lot of databases, just show them as a list of links instead of drop down menu
 		{

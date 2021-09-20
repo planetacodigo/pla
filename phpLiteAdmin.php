@@ -46,6 +46,7 @@ class phpLiteAdmin extends phpLiteAdminOptionsInterface {
        
         include_once $d . "/languages/lang_en.php";
         define("LANG", $lang );
+        define("DATABASES", $databases );
 
         /**
          * Start Code

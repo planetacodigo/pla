@@ -21,7 +21,7 @@ define('VERSION_CHECK_URL','https://www.phpliteadmin.org/current_version.php');
 define('PROJECT_BUGTRACKER_LINK','<a href="https://bitbucket.org/phpliteadmin/public/issues?status=new&status=open" target="_blank">https://bitbucket.org/phpliteadmin/public/issues?status=new&status=open</a>');
 define('PROJECT_INSTALL_LINK','<a href="https://bitbucket.org/phpliteadmin/public/wiki/Installation" target="_blank">https://bitbucket.org/phpliteadmin/public/wiki/Installation</a>');
 
-include_once LANGFILE;
+
 // up here, we don't output anything. debug output might appear here which is catched by ob and thrown later
 ob_start();
 

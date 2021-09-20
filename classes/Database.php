@@ -15,7 +15,7 @@ class Database
 	public function __construct($data)
 	{
 		$lang =  LANG;
-		error_log("lang", strlen($lang));
+		error_log("lang", count($lang));
 		global $params;
 		$this->data = $data;
 		try
@@ -180,7 +180,8 @@ class Database
 	// print the list of databases
 	public function print_db_list()
 	{
-		global $databases, $lang, $params, $currentDB;
+		$lang = LANG;
+		global $databases, $params, $currentDB;
 		echo "<fieldset style='margin:15px;' class='databaseList'><legend><b>".$lang['db_ch']."</b></legend>";
 		if(sizeof($databases)<10) //if there aren't a lot of databases, just show them as a list of links instead of drop down menu
 		{
@@ -290,7 +291,7 @@ class Database
 	//get the last modified time of database
 	public function getDate()
 	{
-		global $lang;
+		$lang = LANG;
 		return date($lang['date_format'], filemtime($this->data['path']));
 	}
 
@@ -663,7 +664,8 @@ class Database
 	// this has been completely debugged / rewritten by Christopher Kramer
 	public function alterTable($table, $alterdefs)
 	{
-		global $debug, $lang;
+		global $debug;
+		$lang = LANG;
 		$this->alterError="";
 		$errormsg = sprintf($lang['alter_failed'],htmlencode($table)).' - ';
 		if($debug) $this->debugOutput .= "ALTER TABLE: table=($table), alterdefs=($alterdefs), PCRE version=(".PCRE_VERSION.")<hr /><br />";
@@ -1484,7 +1486,7 @@ class Database
 	//export sql
 	public function export_sql($tables, $drop, $structure, $data, $transaction, $comments, $echo=true)
 	{
-		global $lang;
+		$lang = LANG;
 		@set_time_limit(-1);
 		// we use \r\n if the _client_ OS is windows (as the exported file is downloaded to the client), \n otherwise
 		$crlf = (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'Win')!==false ? "\r\n" : "\n");

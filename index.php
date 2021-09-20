@@ -308,7 +308,7 @@ function checkDbName($name)
 // returns the key of the db if managed, false otherwise.
 function isManagedDB($path)
 {
-	global $databases;
+	$databases = DATABASES;
 	foreach($databases as $db_key => $database)
 	{
 		if($path === $database['path'])

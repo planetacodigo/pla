@@ -2,7 +2,7 @@
 
 use phpLiteAdmin\Library\Authorization;
 use phpLiteAdmin\Library\Database;
-use phpLiteAdmin\Library\GetParameters;
+
 use phpLiteAdmin\Library\MicroTimer;
 use phpLiteAdmin\Library\Resources;
 
@@ -44,8 +44,8 @@ if(!session_start())
 // cookies names cannot contain symbols, except underscores
 define("COOKIENAME", preg_replace('/[^a-zA-Z0-9_]/', '_', $cookie_name . '_' . VERSION) );
 
-$params = new GetParameters();
-define("PARAMS", $params);
+
+
 
 if($debug==true)
 {

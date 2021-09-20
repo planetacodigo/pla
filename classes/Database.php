@@ -3,6 +3,8 @@
 // Generic database abstraction class to manage interaction with database without worrying about SQLite vs. PHP versions
 //
 namespace phpLiteAdmin\Library;
+
+use phpLiteAdmin\Library\GetParameters;
 class Database
 {
 	protected $db; //reference to the DB object
@@ -16,7 +18,7 @@ class Database
 	{
 		$lang =  LANG;
 		error_log("lang", count($lang));
-		$params = PARAMS;
+		$params = new GetParameters();
 		$this->data = $data;
 		try
 		{
@@ -182,7 +184,7 @@ class Database
 	{
 		$lang = LANG;
 		$databases = DATABASES;
-		$params = PARAMS;
+		$params = new GetParameters();
 		global $currentDB;
 		echo "<fieldset style='margin:15px;' class='databaseList'><legend><b>".$lang['db_ch']."</b></legend>";
 		if(sizeof($databases)<10) //if there aren't a lot of databases, just show them as a list of links instead of drop down menu

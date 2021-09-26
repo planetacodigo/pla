@@ -79,8 +79,11 @@ class GetParameters
 			$url = $this->getURL($assoc, false);
 		
 		$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http'); 
+		$real_url =  $protocol."://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+
+		$x = pathinfo($real_url);
 		
-		header("Location: ".$protocol."://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].$url, true, 302);
+		header("Location: ".$x['dirname'].'/'.$url, true, 302);
 		exit;
 	}
 }
